@@ -6,9 +6,6 @@ from datetime import datetime
 import json
 
 
-def holaa(request):
-    return render(request, 'mysite/hola.html')
-
 def hello(request):
     return HttpResponse('oh, Hi current server time is {now}'.format(
         now=datetime.now().strftime('%b %dth, %Y - &H:%M hrs')
