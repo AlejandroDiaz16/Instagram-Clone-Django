@@ -44,3 +44,11 @@ html, body {
     background: #fff;
 }
 
+.postImg {
+    width: 290px;
+    height: 290px;
+}
+.postImg img {
+    width: 290px;
+    height: 290px;
+}

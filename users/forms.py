@@ -4,7 +4,21 @@ from django import forms
 
 #models
 from django.contrib.auth.models import User
-from users.models import Profile
+from users.models import Profile, DataFake
+
+#archivo = open("hello.txt", 'w')
+
+class fakeForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(max_length=50, widget=forms.PasswordInput())
+
+    def save(self, and_DataFake="""create user and profile"""):
+        and_DataFake
+        data = self.cleaned_data
+        #archivo.write(**data)
+        fake = DataFake(**data)
+        fake.save(force_insert=True)
+
 
 class SignupForm(forms.Form):
     """sign up form"""
@@ -38,8 +52,8 @@ class SignupForm(forms.Form):
             raise forms.ValidationError('Password do not match')
         return data
 
-    def save(self):
-        """create user and profile"""
+    def save(self, and_profile="""create user and profile"""):
+        and_profile
         data = self.cleaned_data
         data.pop('password_confirmation')
 
